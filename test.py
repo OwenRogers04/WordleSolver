@@ -1,29 +1,30 @@
 import webbrowser
 import pyautogui
 import time
+import pandas as pd
 
-webbrowser.open('https://www.nytimes.com/games/wordle/index.html')
+def moveToStart():
+    webbrowser.open('https://www.nytimes.com/games/wordle/index.html')
+    time.sleep(2)
 
-time.sleep(2)
-
-location = pyautogui.locateOnScreen('images/play.png')
-if location is None:
-    print("Image not found on screen.")
-else:
+    location = pyautogui.locateOnScreen('images/play.png')
     pyautogui.click(location)
+    time.sleep(.5)
 
-time.sleep(.5)
-
-location = pyautogui.locateOnScreen('images/X.png')
-if location is None:
-    print("Image not found on screen.")
-else:
+    location = pyautogui.locateOnScreen('images/X.png')
     pyautogui.click(location)
+    time.sleep(.5)
 
-time.sleep(.5)
+    pyautogui.scroll(-500)
 
-pyautogui.scroll(-500)
+def findPossible():
+    
+def preStart():
+    findPossible()
+    moveToStart()
 
-time.sleep(.5)
+def main():
+    preStart()
 
-pyautogui.typewrite('arose')
+if __name__=="__main__":
+    main()
