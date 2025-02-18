@@ -9,7 +9,7 @@ def moveToStart():
 
     location = pyautogui.locateOnScreen('images/play.png')
     pyautogui.click(location)
-    time.sleep(.5)
+    time.sleep(1)
 
     location = pyautogui.locateOnScreen('images/X.png')
     pyautogui.click(location)
@@ -18,9 +18,11 @@ def moveToStart():
     pyautogui.scroll(-500)
 
 def findPossible():
-    
+    valid = pd.read_csv("info/valid-words.csv")
+    used = open("info/used.txt", 'r')
+    possible = open("info/possible.txt", 'w')
+
 def preStart():
-    findPossible()
     moveToStart()
 
 def main():
