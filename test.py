@@ -21,9 +21,18 @@ def findPossible():
     valid = pd.read_csv("info/valid-words.csv")
     used = open("info/used.txt", 'r')
     possible = open("info/possible.txt", 'w')
+    mylist = []
+    for word in used:
+        mylist.append(word[:5].strip().lower())
+    
+    dataframe1 = pd.DataFrame(mylist, columns=["word"])
+    dataframe1.to_csv('info/possible.csv', index=False)
+
+
+
 
 def preStart():
-    moveToStart()
+    findPossible()
 
 def main():
     preStart()
